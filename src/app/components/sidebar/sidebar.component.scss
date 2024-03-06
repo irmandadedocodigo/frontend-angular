@@ -1,0 +1,28 @@
+.container {
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-content {
+  display: flex;
+}
+
+.sidebar {
+  flex-direction: column;
+  padding: 20px;
+  width: 200px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+row > p {
+  margin: 0;
+}
+
+.mat-typography p {
+  margin: 0;
+}
