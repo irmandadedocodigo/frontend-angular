@@ -1,0 +1,57 @@
+<div class="flex items-center flex-col min-w-96">
+    <div class="mb-5 text-center">
+        <h1 class="text-4xl mb-2">Crie sua conta</h1>
+        <p class="text-slate-500">
+            Crie uma conta para acessar os recursos da nossa plataforma
+        </p>
+    </div>
+
+    <form [formGroup]="registerForm" class="w-full">
+        <div class="flex flex-col gap-3 mb-5">
+            <label for="name">Nome</label>
+            <input type="text" placeholder="Digite seu nome" formControlName="name" class="
+          border
+          border-gray-300
+          rounded
+          p-2
+          focus:outline-none
+          focus:ring-2
+          focus:ring-blue-500
+          focus:border-transparent
+          w-full
+        " />
+            <label for="email">Email</label>
+            <input type="text" placeholder="Digite seu email" formControlName="email" class="
+        border
+        border-gray-300
+        rounded
+        p-2
+        focus:outline-none
+        focus:ring-2
+        focus:ring-blue-500
+        focus:border-transparent
+        w-full
+        " />
+
+            <label for="password">Senha</label>
+            <input type="password" placeholder="Digite sua senha" formControlName="password" class="
+        border
+        border-gray-300
+        rounded
+        p-2
+        focus:outline-none
+        focus:ring-2
+        focus:ring-blue-500
+        focus:border-transparent
+        w-full
+        " />
+
+        </div>
+
+
+        <button class="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-700 transition"
+            (click)="onSubmit()">Cadastrar</button>
+
+
+    </form>
+</div>
