@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { IUser } from '../../interfaces/user';
 
 @Component({
   selector: 'app-register-form',
@@ -9,13 +10,20 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './register-form.component.scss'
 })
 export class RegisterFormComponent {
-  public registerForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
+  constructor(private formBuilder: FormBuilder) { }
+
+  public registerForm: FormGroup = this.formBuilder.group({
+    name: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
   })
 
   public onSubmit() {
-    console.log(this.registerForm.value);
+    this.registerForm.markAllAsTouched();
+
+    if (this.registerForm.valid) {
+      const user: IUser = this.registerForm.value;
+      console.log(user);
+    }
   }
 }
